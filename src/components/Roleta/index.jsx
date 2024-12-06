@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Swal from 'sweetalert2'
 import './index.css'
 
 export default function Roleta({ saldo, setSaldo }) {
@@ -31,7 +32,11 @@ export default function Roleta({ saldo, setSaldo }) {
             if (_n1 == _n2 && _n1 == _n3 && _n1 == _n4) {
                 const ganhoReal = valorAposta * multiplicadorGanho
                 setSaldo(saldo + ganhoReal)
-                alert(`Parabéns você ganhou R$${ganhoReal}`)
+                Swal.fire({
+                    title: "Boa!!!",
+                    text: `Parabéns você ganhou R$${ganhoReal}`,
+                    icon: "success"
+                });
             }
 
             setN1(_n1)
@@ -40,7 +45,11 @@ export default function Roleta({ saldo, setSaldo }) {
             setN4(_n4)
         }
         else {
-            alert("Você não tem saldo suficiente, faça um PIX para continuar...")
+            Swal.fire({
+                title: "Atenção",
+                text: "Você não tem saldo suficiente, faça um PIX para continuar...",
+                icon: "warning"
+            });
         }
     }
 

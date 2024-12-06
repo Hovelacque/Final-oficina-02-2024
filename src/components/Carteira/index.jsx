@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 import './index.css'
 
 export default function Carteira({ saldo, setSaldo }) {
@@ -7,7 +8,11 @@ export default function Carteira({ saldo, setSaldo }) {
     }
 
     const sacar = () => {
-        alert('ops... ainda não tem como tirar, volte outro dia :)')
+        Swal.fire({
+            title: "ops...",
+            text: `Ainda não tem como tirar, volte outro dia :)`,
+            icon: "error"
+        });
     }
 
     return (
