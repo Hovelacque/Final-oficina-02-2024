@@ -10,7 +10,7 @@ export default function Carteira({ saldo, setSaldo }) {
     const sacar = () => {
         Swal.fire({
             title: "ops...",
-            text: `Ainda não tem como tirar, volte outro dia :)`,
+            text: `Ainda não tem como tirar, volte outro dia 😅`,
             icon: "error"
         });
     }

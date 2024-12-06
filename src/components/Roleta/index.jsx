@@ -7,9 +7,10 @@ export default function Roleta({ saldo, setSaldo }) {
     const [n2, setN2] = useState(0)
     const [n3, setN3] = useState(0)
     const [n4, setN4] = useState(0)
+    const [valorAposta, setValorAposta] = useState(10)
 
-    const percertagemDeSorte = 5;
-    const valorAposta = 10;
+    const percertagemDeSorte = 50;
+    // const valorAposta = 10;
     const multiplicadorGanho = 10;
 
     const girar = () => {
@@ -53,6 +54,20 @@ export default function Roleta({ saldo, setSaldo }) {
         }
     }
 
+    const alteraValorDaAposta = (value) => {
+        const valor = value.target.value
+        if (valor < 10) {
+            Swal.fire({
+                title: "Atenção",
+                text: "o valor minimo de aposta é R$10",
+                icon: "info"
+            });
+            setValorAposta(10)
+        }
+        else
+            setValorAposta(valor)
+    }
+
     return (
         <>
             <div className='roleta'>
@@ -61,7 +76,11 @@ export default function Roleta({ saldo, setSaldo }) {
                 <h1>{n3}</h1>
                 <h1>{n4}</h1>
             </div>
-            <button onClick={girar}>GIRAR</button>
+            <div>
+                <label>Valor aposta:</label>
+                <input type='text' value={valorAposta} onChange={(v) => setValorAposta(v.target.value)} onBlur={alteraValorDaAposta} />
+                <button onClick={girar}>GIRAR</button>
+            </div>
         </>
     )
 }

@@ -13,6 +13,9 @@ function App() {
         <Carteira saldo={saldo} setSaldo={setSaldo} />
         <Roleta saldo={saldo} setSaldo={setSaldo} />
       </div>
+      <p className="obs">
+        Acerte 4 números iguais e ganhe 10x o valor da aposta
+      </p>
     </>
   )
 }
